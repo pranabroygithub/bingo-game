@@ -1,0 +1,257 @@
+$font-size:2rem;
+$font-weight:400;
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+$deepAqua:#003b46;
+$ocean:#07575b;
+$wave:#66a5ad;
+$seafoam:#c4dfe6;
+$grid-box-size: 600px;
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+button{
+    border: none;
+}
+
+.element-disable{
+    pointer-events: none;
+}
+
+body{
+    background-color:$ocean;
+    min-height: 100vh;
+    font-family: $font-family;
+
+    .page-container{
+        margin: 0 auto;
+        max-width: 1500px;
+        height: 100vh;
+        display: flex;
+        justify-content: space-evenly;
+
+        .game-container{
+            background-color: $deepAqua;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 3rem;
+            
+            flex: 1 1 80%;
+
+            .game-winning-heading{
+                animation-name: bingo-animation;
+                animation-duration: 10s;
+                animation-fill-mode: forwards;
+                animation-timing-function: linear;
+                
+                margin: 0.5rem;
+
+                display: flex;
+                flex-direction: column;
+
+                .game-winning-heading-letter{
+                    font-size: 6rem;
+                    font-weight: 900;
+
+                }
+            }
+        
+        
+            .box-container{
+        
+        
+                position: relative;
+                width: $grid-box-size ;
+                height: $grid-box-size ;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                margin: 0.5rem;
+                background-color: $ocean;
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                row-gap: 0.5rem;
+                column-gap: 0.5em;
+        
+        
+                .cell{
+                    background-color: $wave;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+        
+                    font-size: $font-size;
+                    font-weight: $font-weight;
+                    cursor: pointer;
+                }
+                    .cell:hover{
+                        background-color: $seafoam;
+                        color: $deepAqua;
+                    }
+        
+                .cell-blink{
+                    animation: cell-blink 1000ms alternate infinite;
+                }
+                @keyframes cell-blink {
+                    100%{color: $ocean;}   
+                }
+                .cellIsSelected{
+                    background-color: $seafoam;
+                    pointer-events: none;
+                }
+        
+        
+            }
+            }
+        
+            .game-controls-container{
+            background-color: $seafoam;
+        
+            padding: 0 1em;
+            
+            flex: 1 0 20%;
+        
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        
+        
+            
+            .control-button{  
+            height: 10%;
+            max-width: 15rem;
+            width: 100%;
+            border-radius: 1.6rem; 
+            background-color: #66a5ad;
+            font-weight: 900;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            font-size: 1rem;
+
+
+        
+            cursor: pointer;
+            transition: font-size 200ms;
+           
+            }
+        
+                .control-button:hover{
+                    background-color: #07575b;
+                    color: #66a5ad;
+                    font-size: 1.2rem;
+                }
+        
+            
+            
+        }
+    }
+}
+
+@media (max-width:1100px){
+    body{
+        .page-container{
+            // flex-direction: column;
+            .game-container{
+                padding: 0 1rem;
+
+                .game-winning-heading{
+                    .game-winning-heading-letter{
+                        font-size: 5rem;
+                    }
+                }
+                .box-container{
+                    width: 500px;
+                    height: 500px;
+                }
+                
+            }
+            
+        }
+    }
+   
+} 
+@media (max-width:950px){
+    body{
+        .page-container{
+            .game-container{
+                .box-container{
+                    width: 400px;
+                    height: 400px;
+                }
+                .game-winning-heading{
+                    .game-winning-heading-letter{
+                        font-size: 4.5rem;
+                    }
+                }
+               
+            }
+            .game-controls-container{
+                .control-button{
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+   
+}
+
+@media (max-width:800px){
+    body{
+        .page-container{
+            flex-direction: column;
+            .game-container{
+                .box-container{
+                    width: 400px;
+                    height: 400px;
+                }
+            
+            }
+            .game-controls-container{
+            flex-direction: row;
+
+                .control-button{
+                    font-size: 1rem;
+                    height: 50%;
+                }
+            }
+        }
+    }
+   
+}
+@media (max-width:600px){
+    body{
+        .page-container{
+            .game-container{
+                flex-direction: column;
+                .game-winning-heading{
+                    flex-direction: row;
+                    .game-winning-heading-letter{
+                        margin: 0 0.5rem;
+                    }
+                }
+                .box-container{
+                    font-size: 0.5rem;
+                    width: 350px;
+                    height: 350px;
+                }
+               
+            }
+            .game-controls-container{
+                .control-button{
+                    font-size: 1rem;
+                }
+            }
+        }
+
+    }
+   
+}
