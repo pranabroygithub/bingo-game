@@ -57,6 +57,9 @@ function defaultGame() {
   cell.forEach((item) => {
     item.classList.remove("cellIsSelected");
   });
+  letters.forEach((cell) => {
+    cell.style.color = "black";
+  });
   startGame.style.display = "none";
   stopGame.style.display = "none";
   boxController.style.pointerEvents = "none";
@@ -193,9 +196,6 @@ function bingoLogic() {
 
   if (count > 4) {
     boxController.style.pointerEvents = "none";
-    for (i = 0; i < count; i++) {
-      letters[i].style.color = "black";
-    }
   }
 }
 
@@ -267,6 +267,7 @@ stopGame.addEventListener("click", () => {
     cell.forEach((item) => {
       item.innerHTML = "?";
     });
+
     defaultGame();
     stopGame.style.display = "none";
     shuffleGame.style.display = "block";
