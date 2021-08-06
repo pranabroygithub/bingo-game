@@ -91,7 +91,7 @@ body .page-container .game-container .box-container .cell-blink {
 }
 
 body .page-container .game-container .box-container .cellIsSelected {
-  background-color: red;
+  background-color: #c4dfe6;
   pointer-events: none;
 }
 
